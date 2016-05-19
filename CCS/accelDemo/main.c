@@ -142,10 +142,10 @@ void main(void) {
     		__delay_cycles(5);
     	}
     	BITSET(PLED1OUT,PIN_LED1);
-    	Timer_LooseDelay(32);
+    	__delay_cycles(10);//   	Timer_LooseDelay(32);
    		BITCLR(PLED1OUT,PIN_LED1);
-   		Timer_LooseDelay(32);
-    	//__delay_cycles(5);
+   	//	Timer_LooseDelay(32);
+    	__delay_cycles(5);
 		ACCEL_singleSample(&accelOut);
 		wispData.epcBuf[2] = accelOut.y + 128;
 		wispData.epcBuf[4] = accelOut.x + 128;
