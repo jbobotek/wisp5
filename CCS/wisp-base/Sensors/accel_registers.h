@@ -3,6 +3,8 @@
  *
  * Register map for the ADXL362 digital accelerometer
  *
+ * Jeremy Note: found datasheet details at http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL362.pdf
+ *
  * @date Aug 2013
  * @author Aaron Parks
  */
@@ -24,18 +26,24 @@
 #define ADXL_REG_DEVID_MST      0x01
 #define ADXL_REG_PARTID         0x02
 #define ADXL_REG_REVID          0x03
+
+//these three registers are signless 8 bit accel data registers
 #define ADXL_REG_XDATA          0x08
 #define ADXL_REG_YDATA          0x09
 #define ADXL_REG_ZDATA          0x0A
+
 #define ADXL_REG_STATUS         0x0B
 #define ADXL_REG_FIFO_ENTRIES_L 0x0C
 #define ADXL_REG_FIFO_ENTRIES_H 0x0D
+
+//sign extended registers for accel data, 12bit data precision, 4 sx bits on High register
 #define ADXL_REG_XDATA_L        0x0E
 #define ADXL_REG_XDATA_H        0x0F
 #define ADXL_REG_YDATA_L        0x10
 #define ADXL_REG_YDATA_H        0x11
 #define ADXL_REG_ZDATA_L        0x12
 #define ADXL_REG_ZDATA_H        0x13
+
 #define ADXL_REG_TEMP_L         0x14
 #define ADXL_REG_TEMP_H         0x15
 #define ADXL_REG_Reserved0      0x16
@@ -46,9 +54,11 @@
 #define ADXL_REG_TIME_ACT       0x22
 #define ADXL_REG_THRESH_INACT_L 0x23
 #define ADXL_REG_THRESH_INACT_H 0x24
+
+
 #define ADXL_REG_TIME_INACT_L   0x25
 #define ADXL_REG_TIME_INACT_H   0x26
-#define ADXL_REG_ACT_INACT_CTL  0x27
+#define ADXL_REG_ACT_INACT_CTL  0x27 //
 #define ADXL_REG_FIFO_CONTROL   0x28
 #define ADXL_REG_FIFO_SAMPLES   0x29
 #define ADXL_REG_INTMAP1        0x2A

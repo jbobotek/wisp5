@@ -1,3 +1,8 @@
+/* No Operation Macros
+ * to do several No Operation sequences in a row. Can work as a delay function.
+ *
+ */
+
 #ifndef __MSPGCC__
 
 #define twoNOPs\

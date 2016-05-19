@@ -18,35 +18,33 @@ void FRAM_init(void){
 	__delay_cycles(3);
 }
 
+
 ////// Write functions with the physical address
 
 void FRAM_write_long_array(uint32_t *address, uint16_t numberOfLongs , uint32_t *writeData){
-
 	int i;
 
-	for(i = 0 ; i < numberOfLongs ; i++){
+	for(i = 0; i < numberOfLongs; i++){
 		*address = *writeData;
 		writeData++;
 		address++;
 	}
-
 }
 
 void FRAM_write_int_array(uint16_t *address, uint16_t numberOfInts , uint16_t *writeData){
 
-	int i;
+	uint16_t i;//changed because numberOfInts cannot go over 16 bit definition
 
 	for(i = 0 ; i < numberOfInts ; i++){
 		*address = *writeData;
 		writeData++;
 		address++;
 	}
-
 }
 
 void FRAM_write_char_array(uint8_t *address, uint16_t numberOfChars , uint8_t *writeData){
 
-	int i;
+	uint16_t i;//changed because numberOfInts cannot go over 16 bit definition
 
 	for(i = 0 ; i < numberOfChars ; i++){
 		*address = *writeData;
@@ -60,11 +58,10 @@ void FRAM_write_char_array(uint8_t *address, uint16_t numberOfChars , uint8_t *w
 
 void FRAM_write_infoA_long(int addressOffset , uint16_t numberOfLongs , uint32_t *writeData){
 
-	unsigned long *address;
+	unsigned long *address; //why would you use a long for an address? the FRAM only has 64KB
 	address = ((unsigned long *)FRAM_INFOA_START_ADX) + addressOffset;
 
 	FRAM_write_long_array(address , numberOfLongs , writeData);
-
 }
 
 void FRAM_write_infoA_int(int addressOffset , uint16_t numberOfInts , uint16_t *writeData){
@@ -73,7 +70,6 @@ void FRAM_write_infoA_int(int addressOffset , uint16_t numberOfInts , uint16_t *
 	address = ((unsigned int *)FRAM_INFOA_START_ADX) + addressOffset;
 
 	FRAM_write_int_array(address , numberOfInts , writeData);
-
 }
 
 void FRAM_write_infoA_char(int addressOffset , uint16_t numberOfChars , uint8_t *writeData){

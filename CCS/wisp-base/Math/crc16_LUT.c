@@ -1,3 +1,7 @@
+/* Cyclic Redundency Check Look Up Table
+ * this contains a method and table to check for errors in data transmitted to the device
+ *
+ */
 #include <stdint.h>
 
 //A good TI App Note once showed how to auto-generate this (SLA221)

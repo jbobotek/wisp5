@@ -12,7 +12,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-// TODO Translate these to a better format once SPI driver is fleshed out. Make them CONST.
+// TODO Translate these to a better format once SPI driver is fleshed out.
 uint8_t const ADXL_READ_PARTID[] = {ADXL_CMD_READ_REG,ADXL_REG_PARTID,0x00};
 uint8_t const ADXL_READ_DEVID[] = {ADXL_CMD_READ_REG,ADXL_REG_DEVID_AD,0x00};
 uint8_t const ADXL_REAsxD_STATUS[] = {ADXL_CMD_READ_REG,ADXL_REG_STATUS,0x00};
@@ -123,7 +123,7 @@ BOOL ACCEL_initialize_withoutWait() {
  * @todo Implement this function
  */
 void ACCEL_standby() {
-
+//Jeremy Note: I'm sure there are certain registers to enable/change to set it in standby
 
 }
 
@@ -132,7 +132,7 @@ void ACCEL_standby() {
  */
 BOOL ACCEL_singleSample(threeAxis_t_8* result) {
 
-    while(!SPI_acquirePort());
+    while(!SPI_acquirePort());//mutex
 
     BITCLR(POUT_ACCEL_CS, PIN_ACCEL_CS);
     SPI_transaction(gpRxBuf, (uint8_t*)ADXL_READ_XYZ_8BIT, sizeof(ADXL_READ_XYZ_8BIT));

@@ -11,7 +11,7 @@
 #include "../globals.h"
 #include "spi.h"
 
-uint8_t gpRxBuf[SPI_GP_RXBUF_SIZE];
+uint8_t gpRxBuf[SPI_GP_RXBUF_SIZE];//general purpose receive buffer
 
 /**
  * Description of state of the SPI module.

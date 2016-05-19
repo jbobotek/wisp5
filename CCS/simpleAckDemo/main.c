@@ -25,7 +25,7 @@ void my_ackCallback (void) {
  *
  */
 void my_readCallback (void) {
-  asm(" NOP");
+  asm(" NOP"); //asm is to jump to an assembler instruction
 }
 
 /**
